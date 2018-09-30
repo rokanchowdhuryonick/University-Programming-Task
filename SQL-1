@@ -1,0 +1,35 @@
+Assignment Link - https://bit.ly/2zGx7SJ
+
+
+                                                        Answers
+ ---------------------------------------------------------------------------------------------------------------------------------
+
+1. SELECT * FROM EMP WHERE COMM>SAL;
+
+2. SELECT * FROM EMP order by JOB;
+
+3. SELECT * FROM EMP WHERE SAL/30>100;
+
+4. SELECT ENAME FROM EMP WHERE ENAME LIKE 'S____';
+
+5. SELECT * FROM EMP WHERE JOB!='PRESIDENT' AND JOB!='SALESMAN' order by SAL;
+
+6. SELECT * FROM EMP WHERE SAL>COMM;
+
+7. SELECT * FROM EMP WHERE SAL>950 AND JOB='SALESMAN' OR JOB='PRESIDENT';
+
+8. SELECT DISTINCT DEPTNO FROM EMP;
+
+9. SELECT ENAME || ' go salary $'|| SAL FROM EMP;
+
+10. SELECT EMPNO, count(*)FROM EMP GROUP BY EMPNO;
+
+11. SELECT ENAME, SAL*12 "SALARY" FROM EMP;
+
+12. SELECT ENAME,SAL,JOB FROM EMP WHERE ENAME LIKE '%K';
+
+13. SELECT * FROM EMP WHERE JOB ='MANAGER' OR JOB='ANALYST';
+
+14. SELECT  EMP.ENAME, DEPT.DNAME,EMP.DEPTNO FROM DEPT INNER JOIN EMP ON EMP.DEPTNO=20;
+
+15. SELECT * FROM EMP order by DEPTNO;
