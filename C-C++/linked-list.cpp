@@ -6,9 +6,11 @@ class Node{
 public:
     int value;
     Node *next;
+
 };
 
 Node *head=NULL;
+Node *top=NULL;
 
 void insertAtFirst(int val){
     Node *n=new Node;
@@ -48,7 +50,7 @@ void insertAtEnd(int val)
      currentNode->next=n;
 }
 
-void removeFirst()
+void EraseFirst()
 {
     Node *n=new Node;
     n=head;
@@ -56,39 +58,94 @@ void removeFirst()
     delete n;
 
 }
-void removeAtMiddle(int val)
-{/*
-    Node *n=new Node;
+void EraseAt(int pos)
+{
+
     Node *currentNode=new Node;
+    Node *prev=new Node;
     currentNode=head;
-    while(currentNode->next!=NULL){
-            if(n->value==val){
-                delete n;
-            }
-        currentNode=currentNode->next;
-     }
+    for(int i=1;i<pos;i++)
+    {
+      prev=currentNode;
+      currentNode=currentNode->next;
+    }
+    prev->next=currentNode->next;
 
-
- delete currentNode;*/
 }
-void removeLast()
+void EraseLast()
 {
     Node *currentNode=new Node;
-    Node *n=new Node;
+    Node *prev=new Node;
+     currentNode=head;
+
+     while(currentNode->next!=NULL){
+            prev=currentNode;
+            currentNode=currentNode->next;
+
+     }
+
+     cout<<"Last Value:"<<currentNode->value<<"\n";
+     prev->next=NULL;
+}
+void Count(){
+    Node *currentNode=new Node;
+
+   int i = 0;
+    currentNode=head;
+    while(currentNode!=NULL)
+    {
+        i++;
+        currentNode=currentNode->next;
+    }
+    cout<<"\n Now Total Node : "<< i<<endl;
+}
+
+
+void Remove(int val){
+   Node *currentNode=new Node;
+   Node *prev=new Node;
+     currentNode=head;
+    while(currentNode->value != val) {
+            prev = currentNode;
+            currentNode = currentNode->next;
+
+    }
+        prev->next = currentNode->next;
+        delete currentNode;
+
+}
+void Push(int val){
+     Node *currentNode=new Node;
      currentNode=head;
 
      while(currentNode->next!=NULL){
         currentNode=currentNode->next;
-
-cout<<currentNode->value<< "-";
      }
-   //  next=NULL;
-     cout<<currentNode->value;
-     // n=currentNode;
-    /* if(currentNode->next==NULL){
-        n=currentNode->next;
-     }*/
-   delete currentNode;
+     Node *n=new Node;
+     n->value=val;
+     n->next = NULL;
+     currentNode->next=n;
+}
+
+void Pop(){
+    Node *currentNode=new Node;
+    Node *prev=new Node;
+    currentNode=head;
+    int i = 0;
+
+
+    while(currentNode->next!=NULL){
+            i++;
+            prev=currentNode;
+            currentNode=currentNode->next;
+
+
+     }
+
+     cout<<"Last Value:"<<currentNode->value<<"\n";
+     prev->next=NULL;
+
+
 }
 
 void printList(){
@@ -103,19 +160,33 @@ void printList(){
 
 int main()
 {
-    insertAtFirst(10);
-    insertAtFirst(1222);
-    insertAtFirst(9);
-    insertAtFirst(6);
+    insertAtFirst(10);insertAtFirst(1222);insertAtFirst(9);insertAtFirst(6);
 printList();
-    insertAtMiddle(2, 17);
-printList();
-    insertAtEnd(606);
+    //insertAtMiddle(2, 17);
+//printList();
+ //   insertAtEnd(606);
+  // printList();
+   Push(1166);
    printList();
-removeFirst();
+   Pop();
+   printList();
+   Count();
+/*   cout<<"\t\tRemove First"<<endl;
+            EraseFirst();
 printList();
-removeLast();
-cout<<"\t\tRemove middle"<<endl;
+cout<<"\t\tRemove Middle"<<endl;
+EraseAt(3);
 printList();
+cout<<"\t\tRemove Last"<<endl;
+EraseLast();
+printList();
+cout<<"\t\tRemove By Value"<<endl;
+Remove(9);
+printList();
+Count();
+insertAtFirst(156);
+printList();
+EraseAt(2);
+printList();*/
     return 0;
 }
