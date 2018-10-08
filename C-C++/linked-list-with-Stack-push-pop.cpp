@@ -87,7 +87,7 @@ void EraseLast()
      cout<<"Last Value:"<<currentNode->value<<"\n";
      prev->next=NULL;
 }
-void Count(){
+int Count(){
     Node *currentNode=new Node;
 
    int i = 0;
@@ -97,7 +97,8 @@ void Count(){
         i++;
         currentNode=currentNode->next;
     }
-    cout<<"\n Now Total Node : "<< i<<endl;
+   // cout<<"\n Now Total Node : "<< i<<endl;
+    return i;
 }
 
 
@@ -128,22 +129,21 @@ void Push(int val){
 }
 
 void Pop(){
-    Node *currentNode=new Node;
+    int i= Count();
+    if(i==0){
+        cout<<"Stack is already empty..!!"<<endl;
+    }else{
+        Node *currentNode=new Node;
     Node *prev=new Node;
     currentNode=head;
-    int i = 0;
-
-
     while(currentNode->next!=NULL){
-            i++;
             prev=currentNode;
             currentNode=currentNode->next;
-
-
      }
-
-     cout<<"Last Value:"<<currentNode->value<<"\n";
+    cout<<"Last Value:"<<currentNode->value<<"\n";
      prev->next=NULL;
+    }
+
 
 
 }
@@ -160,7 +160,7 @@ void printList(){
 
 int main()
 {
-    insertAtFirst(10);insertAtFirst(1222);insertAtFirst(9);insertAtFirst(6);
+    insertAtFirst(10);//insertAtFirst(1222);insertAtFirst(9);insertAtFirst(6);
 printList();
     //insertAtMiddle(2, 17);
 //printList();
@@ -169,8 +169,13 @@ printList();
    Push(1166);
    printList();
    Pop();
+    EraseFirst();
+   // Pop();
+  //  Pop();
+
    printList();
-   Count();
+cout<<"Total Node "<< Count()<<endl;
+Pop();
 /*   cout<<"\t\tRemove First"<<endl;
             EraseFirst();
 printList();
