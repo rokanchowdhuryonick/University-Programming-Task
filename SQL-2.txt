@@ -1,0 +1,7 @@
+1. SELECT EMPNO,ENAME,DEPTNO FROM emp where lower(ENAME)='blake'
+2. SELECT length(ename), length(job) from emp
+3. SELECT DEPTNO,round(SAL) from emp order by DEPTNO
+4. SELECT round((SYSDATE-HIREDATE)/7) "Total Weeks" FROM EMP
+5. SELECT ENAME FROM EMP WHERE EXTRACT(YEAR FROM HIREDATE)=1981
+6. SELECT round(MONTHS_BETWEEN(SYSDATE,HIREDATE)) "Total Months" FROM EMP
+7. SELECT ENAME, HIREDATE, TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE, 6), 'MONDAY'),'fmDay, " the " fmddth " of " Month, YYYY') as "REVIEW Date" from emp
