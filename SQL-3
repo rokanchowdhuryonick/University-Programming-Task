@@ -8,4 +8,5 @@ https://www.coursehero.com/file/13915820/lab-04-02sql/
 4. SELECT ENAME, HIREDATE, TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE, 6), 'MONDAY'),'fmDay, " the " Ddspth " of " Month, YYYY') as "REVIEW" from emp
 5. SELECT ENAME, round(MONTHS_BETWEEN(SYSDATE,HIREDATE)) "MONTHS_WORKED" from emp order by MONTHS_WORKED 
 6. SELECT ENAME || ' earns '|| SAL || ' monthly but wants ' || 3*SAL " Dream Salaries " FROM EMP
-7. 
+7. SELECT INITCAP(ename) "Name", LENGTH(ename) "Length" FROM emp WHERE ename LIKE 'J%' OR ename LIKE 'A%' OR ename LIKE 'M%';
+8. SELECT ename, NVL(TO_CHAR(comm), 'No Commission') COMM FROM emp;
