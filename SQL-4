@@ -1,0 +1,14 @@
+                                          # Lab-3 Task    
+    
+    
+    ==>> source : https://pastebin.com/txvkXxvi
+
+
+
+1. select max(sal),round(avg(sal)),min(sal)from emp;
+2. select avg(sal),max(sal),min(sal) from emp group by deptno;
+3. select job, avg(sal),max(sal),min(sal) from emp group by job;
+4. select deptno, max(sal) from emp group by deptno HAVING max(sal)>2000;
+5. select job, max(sal) from emp where to_char(HIREDATE,'YYYY')>1980 sal ;
+6. select sal, count(sal) from emp where sal>1200 group by sal;
+7. select max(sum(sal+comm))from emp group by job;
