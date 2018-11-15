@@ -1,0 +1,28 @@
+                                               SQL Lab Task-5
+                                     +++++++++++++++++++++++++++++++++
+    Question Source :: https://pastebin.com/raw/CJbww0hp
+
+
+
+                                    //Table Creation
+CREATE TABLE department(
+    deptid number(3),
+    dept_name varchar(6),
+    budget number(6) DEFAULT 0,
+    PRIMARY KEY (deptid),
+    CONSTRAINT cheD CHECK(dept_name in('CSE','EEE','BBA','ENG','ACH'))
+);
+
+
+CREATE TABLE course(
+    crs_id number(4),
+    crs_name varchar(20) NOT NULL,
+    deptid number(3) DEFAULT 0,
+    PRIMARY KEY (crs_id),
+    CONSTRAINT crsD FOREIGN KEY (deptid)
+    REFERENCES department(deptid)
+);
+
+                                  //Demo Data Input
+INSERT INTO department(deptid, dept_name, budget) VALUES ('1','CSE','120');
+INSERT INTO course(crs_id,crs_name, deptid) VALUES ('1','OS','1');
