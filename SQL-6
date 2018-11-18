@@ -1,0 +1,5 @@
+1. SELECT ename from emp where sal> ALL(SELECT sal from emp where job='CLERK') order by sal desc;
+
+2. SELECT ename, deptno, sal from emp where deptno=ANY(SELECT deptno from emp where comm is not NULL) and sal=ANY(SELECT sal from emp where comm is not NULL);
+
+4. SELECT  
