@@ -34,6 +34,47 @@ Tree *input(Tree *inputNode, int val){
     return inputNode;
 }
 
+Tree *minValue(Tree *currentN)
+{
+    while(currentN->left!= NULL) {
+        currentN = currentN->left;
+    }
+    return currentN;
+}
+
+Tree *Delete(Tree *root, int val)
+{
+    Tree *temp;
+
+    if(root==NULL) {
+        return root;
+    }
+
+    if(val<root->value){
+        root->left = Delete(root->left, val);
+    }else if(val > root->value){
+        root->right = Delete(root->right, val);
+    }else{
+        if(root->left==NULL)
+        {
+            temp = root->right;
+            return temp;
+        }
+        else if (root->right == NULL)
+        {
+            temp = root->left;
+            return temp;
+        }else{
+            temp = minValue(root->right);
+            root->value = temp->value;
+            root->right = Delete(root->right, temp->value);
+        }
+
+    }
+    return root;
+}
+
+
 int print_tree(Tree *root)
 {
 
@@ -68,6 +109,10 @@ int main(){
     print_tree(root);
 
 
-    cout<<endl;
 
+
+    cout<<endl;
+root=Delete(root, 80);
+Delete(root, 10);
+print_tree(root);
 }
